@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:5555/users/update-users/6aa1739177746b56e121674c
+method: PATCH
+body:
+  type: json
+  content: |-
+    {
+        "name" : "ogbu joshua",
+        "password" : "abcdefght",
+        "email" : "munachi@gmail.com"
+        
+    }
+order: 4312873443845581

@@ -1,0 +1,23 @@
+$kind: http-request
+url: localhost:5555/products/upload/6aa1739177746b56e121674c
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\" : \"bag\",\r
+
+    \     \"description\" : \"this is a black bag\",\r
+
+    \     \"price\" : \"6000\",\r
+
+    \      \"category\" : \"men\",\r
+
+    \       \"stock\" : \"true\",\r
+
+    \       \"quantity\" : \"50\",\r
+
+    \        \"image\" : \"image\"\r
+
+    }"
+order: 1788973400725

@@ -1,0 +1,4 @@
+$kind: http-request
+url: localhost:5555/products/getall
+method: GET
+order: 3038925882535222

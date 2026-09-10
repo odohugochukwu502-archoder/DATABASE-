@@ -1,15 +1,15 @@
-const userModel = require("./model/userModel.js")
+const userModel = require("../model/userModel")
 
 /**
- * CRUD
+ * CRUD operation
  * CREATE USER (POST)
  * READ USER (GET): GENERAL GET< SINGLE GET
- * UPDATE USER (PUT)
+ * UPDATE USER (PUT, patch)
  * DELETE USER (DELETE)
  */
 
 //CREATE USER
-export const createUser = async (req, res) => {
+ const createUser = async (req, res) => {
     try {
         const {name, email, password} = req.body
         const user = await userModel.create({
@@ -26,7 +26,7 @@ export const createUser = async (req, res) => {
 
 
 //GENERAL GET
-export const getAllUsers = async (req, res) => {
+ const getAllUsers = async (req, res) => {
     try { 
         const getAll = await userModel.find()
         return res.status(200).json({
@@ -44,7 +44,7 @@ export const getAllUsers = async (req, res) => {
 
 //SINGLE GET
 
-export const getSingleUser = async (req, res) => {
+ const getSingleUser = async (req, res) => {
     try {
         const {id} = req.params
         const getSingle = await userModel.findById(id)
@@ -67,7 +67,7 @@ export const getSingleUser = async (req, res) => {
 }
 
 //UPDATE USER
-export const updateUser = async (req, res) => {
+ const updateUser = async (req, res) => {
     try {
         const {id} = req.params
         const {name, email, password} = req.body
@@ -87,7 +87,7 @@ export const updateUser = async (req, res) => {
 
 
 //DELETE USER
-export const deleteUser = async (req, res) => {
+ const deleteUser = async (req, res) => {
     try {
         const {userid} = req.params
         const deletedUser = await userModel.findByIdAndDelete(userid)
@@ -101,3 +101,5 @@ export const deleteUser = async (req, res) => {
         })
     }
 }
+module.exports = { createUser, getAllUsers, getSingleUser, updateUser, deleteUser}
+// snakecasing is written (user_name) and capcasing (userGood)
