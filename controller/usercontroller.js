@@ -128,5 +128,5 @@ const loginUser = async (req, res) => {
         })
     }
 }
-module.exports = { createUser, getAllUsers, getSingleUser, updateUser, deleteUser}
+module.exports = {loginUser, createUser, getAllUsers, getSingleUser, updateUser, deleteUser}
 // snakecasing is written (user_name) and capcasing (userGood)

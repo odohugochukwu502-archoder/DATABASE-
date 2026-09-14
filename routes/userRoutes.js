@@ -1,12 +1,13 @@
 const express = require("express")
 const userRoute = express.Router();
-const {createUser, getAllUsers, getSingleUser, updateUser, deleteUser} = require("../controller/userController.js")
+const {createUser, getAllUsers, getSingleUser, updateUser, deleteUser} = require('../controller/userController.js')
 
 userRoute.post("/new-users", createUser)
 userRoute.get("/all-users", getAllUsers)
 userRoute.get("/get-one-users/:id", getSingleUser)
 userRoute.delete("/deleteUser/:id", deleteUser)
 userRoute.patch("/update-users/:id", updateUser)
+userRoute.get("/login",loginUser)
 
 module.exports = userRoute
 //and port,and different routes are used to test the different endpoints in postman. The port is used to tell the server which port to listen to, and the different routes are used to tell the server which endpoint to listen to. The different routes are defined in the userRoutes.js file, and they are used to tell the server which function to call when a request is made to that endpoint.
