@@ -1,7 +1,14 @@
+//import "dotenv/config" // this is used to load environment variables from a .env file into process.env and is common js
+
+require("dotenv").config() // this is used to load environment variables from a .env file into process.env and is common js
+
 const express = require("express") //this is the framework we are using to build our server and is common js
 const mongoose = require('mongoose'); // moongoose is a library that allows us to interact with our mongoDB database and is common js
 const userRoute = require("./routes/userRoutes.js")
 const productRoute = require("./routes/productRoutes.js")
+const compass_string = process.env.COMPASS_STRING
+ // this is used to load environment variables from a .env file into process.env and is common js
+ const atlast_string = process.env.ATLAST_STRING
 
 
 const compass_string = "mongodb://localhost:27017/cohort8_db" // creating database name

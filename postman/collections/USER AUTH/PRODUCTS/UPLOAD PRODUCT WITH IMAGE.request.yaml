@@ -1,0 +1,48 @@
+$kind: http-request
+url: localhost:5555/products/upload/6aa1739177746b56e121674c
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: name
+      value: bone straight
+      description: ""
+      disabled: false
+    - type: text
+      key: description
+      value: 5 by 5 chinese bone straight
+      description: ""
+      disabled: false
+    - type: text
+      key: price
+      value: "350000"
+      description: ""
+      disabled: false
+    - type: text
+      key: category
+      value: women
+      description: ""
+      disabled: false
+    - type: text
+      key: stock
+      value: "true"
+      description: ""
+      disabled: false
+    - type: text
+      key: quantity
+      value: "10"
+      description: ""
+      disabled: false
+    - type: file
+      key: image
+      src:
+        - /C:/Users/JOSHUA/Downloads/1779906887424_8faa5db6-e14d-4a64-8031-8f4434b0bb97.jpeg
+      description: ""
+      disabled: false
+    - type: text
+      key: ""
+      value: ""
+      description: ""
+      disabled: true
+order: 3362150769697006

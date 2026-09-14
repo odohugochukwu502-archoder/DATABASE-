@@ -1,4 +1,5 @@
 const userModel = require("../model/userModel")
+const bcrypt = require("bcrypt")
 
 /**
  * CRUD operation
@@ -12,8 +13,10 @@ const userModel = require("../model/userModel")
  const createUser = async (req, res) => {
     try {
         const {name, email, password} = req.body
+        const gensalt = await bcrypt.genSalt(10)
+        const hashedPassword = await bcrypt.hash(password, gensalt)
         const user = await userModel.create({
-            name, email, password
+            name, email, password: hashedPassword
         })
         return res.status(201).json({
             message: "User created successfully",
@@ -23,7 +26,31 @@ const userModel = require("../model/userModel")
         return res.status(500).json({message: error.message})
     }
 }
-
+const loginUser = async (req, res) => {
+    try {
+        const {email, password} = req.body
+        const user = await userModel.findOne({email})
+        if (!user) {
+            return res.status(404).json({
+                message: "Are you sure you have an account? Please sign up first"
+            })
+        }
+        const isMatch = await bcrypt.compare(password, user.password)
+        if (!isMatch) {
+            return res.status(401).json({
+                message: "password is incorrect"
+            })
+        }
+        return res.status(200).json({
+            message: "User logged in successfully",
+            data: user
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        })
+    }
+}
 
 //GENERAL GET
  const getAllUsers = async (req, res) => {
