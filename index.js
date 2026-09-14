@@ -15,7 +15,7 @@ const compass_string = "mongodb://localhost:27017/cohort8_db" // creating databa
 
 const atlast_string = "mongodb+srv://odohugochukwu502_db_user:<ugochukwu502#>@cluster0.2tgvh4f.mongodb.net/cohort8_db?appName=Cluster0"// this my atlas string
 
-mongoose.connect("mongodb://localhost:27017/cohort8_db") // mongodb is used when we are working locally , while compass is online, connect our mongoos to our mongodb
+mongoose.connect(atlast_string) // mongodb is used when we are working locally , while compass is online, connect our mongoos to our mongodb
     .then(() => console.log("mongoDB connected ")) // help us hhandle a succcessfull message
     .catch(err => console.error("connection Error: ", err));// handles error
 
