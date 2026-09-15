@@ -8,8 +8,8 @@ const dns = require("dns");
 
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
-const userRoute = require("./routes/userRoutes.js");
-const productRoute = require("./routes/productRoutes.js");
+const userRoutes = require("./routes/userRoutes.js");
+const productRoutes = require("./routes/productRoutes.js");
 
 const compass_string = process.env.COMPASS_STRING;
 const atlast_string = process.env.ATLAS_STRING;
@@ -32,8 +32,8 @@ app.get("/", (req, res) => {
     res.send("server is active");
 });
 
-app.use("/users", userRoute);
-app.use("/products", productRoute);
+app.use("/users", userRoutes);
+app.use("/products", productRoutes);
 
 app.listen(port, () => {
     console.log(`server is up and running on port:${port}`);
